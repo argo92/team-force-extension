@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Popup</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/style.css">
+
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="../js/ddp-client.js"></script>
+	<script type="text/javascript" src="popup.js"></script>
+
+	<script id="poolsList" type="text/x-handlebars-template">
+	    <div class="content-container">
+            {{#each poolsWithDates}}
+                <div class="date">
+                    {{date}}
+                </div>
+                <div class="pools">
+	                {{#each pools}}
+					    <a data-poolid={{_id}}
+					       href="/pool/{{_id}}"
+					       class="pool pool_{{state}}">
+					        <span class="pool__time">{{time}}</span><!--
+					     --><span class="pool__timeDiff">{{timeDiff}}</span><!--
+					     --><span class="pool__shop">{{shop}}</span><!--
+					     --><span class="pool__owner">{{owner}}</span><!--
+					     --><span class="pool__money">{{poolPrice}}</span><!--
+					     --><span class="pool__users"><i class="i-user"></i> {{userCount}}</span>
+					    </a>
+	                {{/each}}
+                </div>
+            {{else}}
+                <div class="blankslate">
+                    <p>Нет пуллов в ближайшее время.</p>
+                    <p><small>Но вы можете <a href="/pool/add">создать новый</a>, это очень просто.</small></p>
+                </div>
+            {{/each}}
+	    </div>
+	</script>
+</head>
+<body>
+
+<div class="isLogin_visible header">
+	<ul class="tabs">
+		<li class="tab tab__active">
+			<a class="tab__link" href="#">
+			<span class="tab__text">Пуллы</span></a>
+		</li><li class="tab">
+			<a class="tab__link" href="/debts"><span class="tab__text">Долги</span><span id="debtsValue" class="tab__badge"></span></a>
+		</li><li class="tab">
+			<a class="tab__link" href="/feeds"><span class="tab__text">Уведомления</span><span id="feedsValue" class="tab__badge"></span></a>
+		</li>
+	</ul>
+</div>
+<div class="isLogin_visible body"></div>
+<div class="isLogin_visible footer">
+
+    <span class="footer__l">
+        <input id="userId" type="hidden" value="">
+        <span id="usermailValue"></span>
+        <a id="logout" href="#">Выход</a>
+    </span>
+    <span class="footer__r"><a class="btn btn-primary" href="/pool/add">Создать новый</a></span>
+</div>
+
+<form class="isLogin_hide" action="#">
+    <p>
+        <input type="email" name="email" id="email">
+    </p>
+    <p>
+        <input type="password" name="password" id="password">
+    </p>
+    <p>
+        <input type="submit" name="submit" id="submit">
+    </p>
+</form>
+
+</body>
+</html>

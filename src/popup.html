@@ -69,13 +69,19 @@
 
 <form class="isLogin_hide" action="#">
     <p>
-        <input type="email" name="email" id="email">
+		<label for="email">
+          Email address
+        </label>
+        <input type="email" name="email" id="email" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus">
     </p>
     <p>
-        <input type="password" name="password" id="password">
+    	<label for="password">
+          Password
+        </label>
+        <input type="password" name="password" id="password" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus">
     </p>
     <p>
-        <input type="submit" name="submit" id="submit">
+        <input class="btn btn-primary" type="submit" name="submit" id="submit" value="Войти">
     </p>
 </form>
 

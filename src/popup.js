@@ -45,7 +45,7 @@ $(function() {
 			let loginParams = {'password': psswd,'user':{'email':email}};
 			ddp.call('login', loginParams)
 				.then(res => {
-					ddp.call('whoiam').then(currentUser => {
+					ddp.call('whoami').then(currentUser => {
 						ddp.call('extension', currentUser._id, currentUser.profile.company).then(data => {
 							poolsWithDates = data.poolsWithDates;
 

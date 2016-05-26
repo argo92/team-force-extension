@@ -11,7 +11,7 @@ function startBackground() {
     if (!!email && !!psswd) {
         ddp.call('login', loginParams)
             .then(res => {
-                ddp.call('whoiam').then(currentUser => {
+                ddp.call('whoami').then(currentUser => {
                     ddp.subscribe('Feeds', currentUser.profile.company);
                     ddp.watch('Feeds', (changedDoc, message) => {
 

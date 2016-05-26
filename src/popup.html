@@ -14,11 +14,11 @@
 
 	<script id="poolsList" type="text/x-handlebars-template">
 	    <div class="content-container">
-            {{#each poolsWithDates}}
-                <div class="date">
-                    {{date}}
-                </div>
-                <div class="pools">
+	        {{#each poolsWithDates}}
+	            <div class="date">
+	                {{date}}
+	            </div>
+	            <div class="pools">
 	                {{#each pools}}
 					    <a data-poolid={{_id}}
 					       href="/pool/{{_id}}"
@@ -31,15 +31,16 @@
 					     --><span class="pool__users"><i class="i-user"></i> {{userCount}}</span>
 					    </a>
 	                {{/each}}
-                </div>
-            {{else}}
-                <div class="blankslate">
-                    <p>Нет пуллов в ближайшее время.</p>
-                    <p><small>Но вы можете <a href="/pool/add">создать новый</a>, это очень просто.</small></p>
-                </div>
-            {{/each}}
+	            </div>
+	        {{else}}
+	            <div class="blankslate">
+	                <p>Нет пуллов в ближайшее время.</p>
+	                <p><small>Но вы можете <a target="_blank" href="{{baseUrl}}/pool/add">создать новый</a>, это очень просто.</small></p>
+	            </div>
+	        {{/each}}
 	    </div>
 	</script>
+
 </head>
 <body>
 
@@ -49,9 +50,9 @@
 			<a class="tab__link" href="#">
 			<span class="tab__text">Пуллы</span></a>
 		</li><li class="tab">
-			<a class="tab__link" href="/debts"><span class="tab__text">Долги</span><span id="debtsValue" class="tab__badge"></span></a>
+			<a class="tab__link" target="_blank" href="/debts"><span class="tab__text">Долги</span><span id="debtsValue" class="tab__badge"></span></a>
 		</li><li class="tab">
-			<a class="tab__link" href="/feeds"><span class="tab__text">Уведомления</span><span id="feedsValue" class="tab__badge"></span></a>
+			<a class="tab__link" target="_blank" href="/feeds"><span class="tab__text">Уведомления</span><span id="feedsValue" class="tab__badge"></span></a>
 		</li>
 	</ul>
 </div>
@@ -63,7 +64,7 @@
         <span id="usermailValue"></span>
         <a id="logout" href="#">Выход</a>
     </span>
-    <span class="footer__r"><a class="btn btn-primary" href="/pool/add">Создать новый</a></span>
+    <span class="footer__r"><a class="btn btn-primary" target="_blank" href="/pool/add">Создать новый</a></span>
 </div>
 
 <form class="isLogin_hide" action="#">

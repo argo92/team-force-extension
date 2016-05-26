@@ -1,9 +1,16 @@
 $(function() {
 	const poolsList = Handlebars.compile($('#poolsList').html());
-	const ddp       = new DDPClient('ws://localhost:3000/websocket');
+	const baseUrl   = 'localhost:3000';
+	const ddp       = new DDPClient(`ws://${baseUrl}/websocket`);
 
 	let feedsCounter = 0;
 	let isLogin = false;
+
+	$('a[target="_blank"]').each(function(i, item){
+		$item = $(item);
+		const suffixLink = $item.attr('href');
+		$item.attr('href', baseUrl + suffixLink);
+	});
 
 	$('#submit').bind('click', function (event) {
 		event.preventDefault();
@@ -69,7 +76,7 @@ $(function() {
 
 	function render() {
 
-		const context    = {poolsWithDates};
+		const context    = {poolsWithDates: poolsWithDates, baseUrl: baseUrl};
 		const html       = poolsList(context);
 		const loginClass = 'isLogin';
 

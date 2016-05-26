@@ -1,4 +1,5 @@
-const ddp = new DDPClient('ws://localhost:3000/websocket');
+const baseUrl   = 'localhost:3000';
+const ddp       = new DDPClient(`ws://${baseUrl}/websocket`);
 
 let feedsCounter = 0;
 const reconnectTime = 5000;
